@@ -1,9 +1,90 @@
 @import "fonts";
 
 body {
-    font-family: CormorantUpright;
-    font-size: 40px;
-    span {
-        color: #ff6d00;
+    font-family: OpenSans, sans-serif;
+}
+
+header {
+    .name {
+        font-family: GothamMedium, sans-serif;
+        font-size: 20.6px;
+        line-height: 30px;
+        color: #ffffff;
+    }
+}
+
+aside {
+    .sidebar {
+        font-family: OpenSansLight;
+        font-size: 13px;
+        line-height: 30px;
+        font-weight: 100;
+    }
+}
+
+main {
+    .dashboard {
+        font-size: 32px;
+        line-height: 30px;
+        font-weight: 600;
+        color: #6c757e;
+    }
+
+    .report-file {
+        font-family: Roboto;
+        font-size: 24px;
+        line-height: 1.2;
+        font-weight: 400;
+        text-decoration: underline;
+        letter-spacing: 0.013em;
+        color: #4879df;
+    }
+
+    .chart {
+        .name {
+            font-size: 18px;
+            line-height: 21px;
+            font-weight: bold;
+            color: #2c3538;
+        }
+    }
+}
+
+.font-roboto { font-family: Roboto; }
+
+.my-flex-wrap2{
+    flex-wrap: nowrap;
+}
+
+@media (max-width:1903px) {
+    .my-flex-wrap2{
+        flex-wrap: wrap;
+    }
+}
+
+.my-flex-wrap {
+    flex-wrap: nowrap;
+}
+
+.block1-w{
+    width: auto;
+}
+
+@media (max-width:1536px) {
+    .my-flex-wrap {
+        flex-wrap: wrap;
+    }
+    .block1-w{
+        width: 100%;
+    }
+}
+
+.my-flex-wrap2_2{
+    flex-wrap: nowrap;
+}
+
+@media (max-width:1036px) {
+    .my-flex-wrap2_2{
+        flex-wrap: wrap;
     }
 }
