@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    @@include('html/head.html', {
+        "title": "einna.tr"
+    })
+    <body class="bg-[#e6e6e6]/[.5]">
+        @@include('html/header.html', {})
+        <div class="flex">
+            @@include('html/sidebar.html', {
+                "status_Dashboard": "opacity-[.5]",
+                "status_User_Study": "opacity-[.5]",
+                "status_Launch_a_Study": "opacity-[.5]",
+                "status_View_Archive": "bg-[#fff]/[.1]",
+                "status_My_Account": "opacity-[.5]"
+            })
+            <main class="w-full">
+                <div class="flex w-full h-[87px] bg-[#fff]">
+                    <div class="flex w-full">
+                        <p class="grid place-content-center ml-[44px] h-[87px] dashboard">View Archive</p>
+                    </div>
+                </div>
+                <div class="grid">
+                    <p>В розробці</p>
+                </div>
+            </main>
+        </div>
+        @@include('html/footer.html', {})
+        <script src="js/app.min.js"></script>
+    </body>
+</html>

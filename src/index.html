@@ -1,16 +1,608 @@
 <!DOCTYPE html>
 <html lang="en">
     @@include('html/head.html', {
-        "title": "Головна"
+        "title": "einna.tr"
     })
-    <body>
+    <body class="bg-[#e6e6e6]/[.5]">
         @@include('html/header.html', {})
-        <main>
-            <span>
-                <h1>Що таке Front-end</h1>
-                <p>Побутує думка, що можна розділити Front-end на front of the front-end i back of the front-end. Тобто на тих, хто займається версткою, анімаціями, дизайном, доступністю сайтів, і тих, хто пише бізнес-логіку, більше працює з фреймворками, але не має великого досвіду у верстці. Чи погоджуєтесь ви з таким розподілом? Чи варто розділяти Front-end, щоб компанії, наприклад, могли прицільніше наймати спеціалістів на позиції, а спеціалісти могли розвиватися в більш чіткому векторі?</p>
-            </span>
-        </main>
+        <div class="flex">
+            @@include('html/sidebar.html', {
+                "status_Dashboard": "bg-[#fff]/[.1]",
+                "status_User_Study": "opacity-[.5]",
+                "status_Launch_a_Study": "opacity-[.5]",
+                "status_View_Archive": "opacity-[.5]",
+                "status_My_Account": "opacity-[.5]"
+            })
+            <main class="w-full">
+                <div class="flex w-full h-[87px] bg-[#fff]">
+                    <div class="flex w-full">
+                        <p class="grid place-content-center ml-[44px] h-[87px] dashboard">Dashboard</p>
+                    </div>
+                    <div class="flex min-w-[286px] bg-[#fafafa]">
+                        <img class="ml-[25px] mt-[18px] mb-[20px]" src="@img/main/ic_report_file.png_1690.png" alt="">
+                        <a class="grid place-content-center ml-[21px] report-file" href="files/Report file.pdf" target="_blanc">Report file</a>
+                    </div>
+                </div>
+                <!--Верх колонок-->
+                <div class="flex my-flex-wrap m-[20px] mb-0 relative">
+                    <div class="block1-w min-w-[700px] grid grid-rows-2 grid-cols-2">
+                        <!-- Your Business -->
+                        <div class="flex-center m-[20px] bg-[#fff] rounded-[10px] shadow chart">
+                            <div class="bg-[#fafafa] w-full h-[50px] rounded-[10px]">
+                                <span class="flex items-center ml-[20px] py-[15px] name font-roboto">Your Business</span>
+                            </div>
+                            <div class="flex justify-center">
+                                <p class="text-[#2c3438] text-[28px]">
+                                    <span class="text-[#ffab00] text-[40px] font-bold">6</span>/10
+                                </p>
+                                <p class="bg-[#ffab00] rounded-[12px] w-[55px] h-[24px] ml-[10px] mt-[24px] text-white text-center font-bold">Fair</p>
+                            </div>
+                            <div class="flex justify-center">
+                                <div class="relative w-[180px]">
+                                <canvas id="half_doughnutChart" width="280" height="207"></canvas>
+                                <script>
+                                    const half_doughnutChartData = {
+                                        labels: ['Infomation 01'],
+                                        datasets: [{
+                                            data: [60, 40],
+                                            borderColor: [
+                                                'rgba(245, 69, 5, 1)',
+                                                'rgba(200, 200, 200, 1)'
+                                            ],
+                                            backgroundColor: [
+                                                'rgba(245, 69, 5, 1)',
+                                                'rgba(200, 200, 200, 1)'
+                                            ],
+                                        }]
+                                    }
+
+                                    const half_doughnutChartConfig = {
+                                        type: 'doughnut',
+                                        data: half_doughnutChartData,
+                                        options: {
+                                            circumference: 180,
+                                            rotation: 270,
+                                            cutout: '80%',
+                                            aspectRatio: 2,
+                                            plugins: {
+                                                legend: {
+                                                    display: false
+                                                },
+                                                tooltip: {
+                                                    filter: (tooltipItem) => {
+                                                        console.log()
+                                                        return tooltipItem.dataIndex === 0
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                </script>
+                                <script>
+                                    const half_doughnutChart = new Chart(
+                                        document.getElementById('half_doughnutChart'),
+                                        half_doughnutChartConfig
+                                    );
+                                </script>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Industry Avarage -->
+                        <div class="m-[20px] bg-[#fff] rounded-[10px] shadow chart">
+                            <div class="bg-[#fafafa] w-full h-[50px] rounded-[10px]">
+                                <span class="flex items-center ml-[20px] py-[15px] name">Industry Avarage</span>
+                            </div>
+                            <div class="flex justify-center">
+                                <p class="text-[#2c3438] text-[28px]">
+                                    <span class="text-[#21c393] text-[40px] font-bold">8</span>/10
+                                </p>
+                                <p class="bg-[#21c393] rounded-[12px] w-[70px] h-[24px] ml-[10px] mt-[24px] text-white text-center font-bold">Good</p>
+                            </div>
+                            <div class="flex justify-center">
+                                <div class="relative w-[280px]">
+                                <canvas id="half_doughnut2Chart" width="280" height="207"></canvas>
+                                <script>
+                                    const half_doughnut2ChartData = {
+                                        labels: ['Infomation 01'],
+                                        datasets: [{
+                                            data: [80, 20],
+                                            borderColor: [
+                                                'rgba(245, 69, 5, 1)',
+                                                'rgba(200, 200, 200, 1)'
+                                            ],
+                                            backgroundColor: [
+                                                'rgba(245, 69, 5, 1)',
+                                                'rgba(200, 200, 200, 1)'
+                                            ],
+                                        }]
+                                    }
+
+                                    const half_doughnut2ChartConfig = {
+                                        type: 'doughnut',
+                                        data: half_doughnut2ChartData,
+                                        options: {
+                                            circumference: 180,
+                                            rotation: 270,
+                                            aspectRatio: 3,
+                                            cutout: '80%',
+                                            plugins: {
+                                                legend: {
+                                                    display: false
+                                                },
+                                                tooltip: {
+                                                    filter: (tooltipItem) => {
+                                                        console.log()
+                                                        return tooltipItem.dataIndex === 0
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                </script>
+                                <script>
+                                    const half_doughnut2Chart = new Chart(
+                                        document.getElementById('half_doughnut2Chart'),
+                                        half_doughnut2ChartConfig
+                                    );
+                                </script>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- TAS -->
+                        <div class="grid grid-cols-1 gap-4 content-evenly m-[20px] pt-[19px] pb-[25px] pr-[37px] bg-[#fff] rounded-[10px] shadow col-span-2 chart">
+                            <div class="flex">
+                                <div class="min-w-[80px] relative">
+                                    <img class=" bottom-0 right-[15px] absolute" src="@img/chart/ic_technology.png_1040.png" alt="technology">
+                                </div>
+                                <div class="min-w-[106px] mr-[40px] mt-[14px] opacity-[.87] text-[18px] font-bold">Technology</div>
+                                <div class="flex flex-initial pb-[10px]">
+                                    <div>
+                                        <p class="text-right text-[#4e5f70] font-bold">7/10</p>
+                                        <div class="flex flex-initial w-[361px] h-[12px] bg-[#dde8ed]">
+                                            <span class="w-[70%] bg-gradient-to-r from-[#f34a36] to-[#21c292]"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex">
+                                <div class="min-w-[80px] h-[43px] relative">
+                                    <img class=" bottom-0 right-[15px] absolute" src="@img/chart/ic_accessibility.png_2898.png" alt="accessibility">
+                                </div>
+                                <div class="min-w-[106px] mr-[40px] mt-[14px] opacity-[.87] text-[18px] font-bold">Accessibility</div>
+                                <div class="flex flex-initial pb-[10px]">
+                                    <div>
+                                        <p class="text-right text-[#4e5f70] font-bold">5/10</p>
+                                        <div class="flex flex-initial w-[361px] h-[12px] bg-[#dde8ed]">
+                                            <span class="w-[50%] bg-gradient-to-r from-[#f34a36] to-[#21c292]"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex">
+                                <div class="min-w-[80px] h-[43px] relative">
+                                    <img class=" bottom-0 right-[17px] absolute" src="@img/chart/ic_security.png_1064.png" alt="security">
+                                </div>
+                                <div class="min-w-[106px] mr-[40px] mt-[14px] opacity-[.87] text-[18px] font-bold">Security</div>
+                                <div class="flex flex-initial pb-[10px]">
+                                    <div>
+                                        <p class="text-right text-[#4e5f70] font-bold">9/10</p>
+                                        <div class="flex flex-initial w-[361px] h-[12px] bg-[#dde8ed]">
+                                            <span class="w-[90%] bg-gradient-to-r from-[#f34a36] to-[#21c292]"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Latest Activities -->
+                    <div class="m-[20px] w-full bg-[#fff] rounded-[10px] shadow chart">
+                        <div class="flex bg-[#fafafa] w-full h-[50px] rounded-[10px]">
+                            <span class="flex w-full items-center ml-[20px] py-[15px] name">Latest Activities</span>
+                            <button class="name mr-[30px] opacity-[.36]">Day</button>
+                            <button class="name mr-[30px]"><span class="text-[#21c393]">Week</span></button>
+                            <button class="name mr-[62px] opacity-[.36]">Month</button>
+                        </div>
+                        <div class="relative w-[500px]">
+                            <canvas id="latest_activitiesChart" width="280" height="207"></canvas>
+                        <script>
+                            const latest_activitiesChartData = {
+                                labels: ['label', 'label', 'label', 'label', 'label', 'label', 'label'],
+                                datasets: [{
+                                    label: 'information 1',
+                                    data: [22, 49, 20, 27, 33, 22, 68],
+                                    borderColor: [
+                                        'rgba(33, 195, 147, 1)'
+                                    ],
+                                    backgroundColor: [
+                                        'rgba(33, 195, 147, 1)'
+                                    ],
+                                    tension: 0.4,
+                                    fill: true
+                                }]
+                            }
+
+                            const latest_activitiesChartConfig = {
+                                type: 'line',
+                                data: latest_activitiesChartData,
+                                options: {
+                                    scales: {
+                                        y: {
+                                            beginAtZero: true,
+                                            min: 0,
+                                            max: 100,
+                                            grid: {
+                                                drawTicks: false
+                                            }
+                                        },
+                                        x: {
+                                            grid: {
+                                                drawTicks: false
+                                            }
+                                        }
+                                    },
+                                    plugins: {
+                                        legend: {
+                                            display: false
+                                        }
+                                    }
+                                }
+                            }
+                        </script>
+                        <script>
+                            const latest_activitiesChart = new Chart(
+                                document.getElementById('latest_activitiesChart'),
+                                latest_activitiesChartConfig
+                            );
+                        </script>
+                        </div>
+                    </div>
+                </div>
+                <!--Низ колонок-->
+                <div class="flex my-flex-wrap2 mx-[20px] mt-[0px]">
+                    <div class="flex w-full my-flex-wrap2_2">
+                        <!-- Aesthetics -->
+                        <div class="m-[20px] bg-[#fff] w-full h-[450px] rounded-[10px] shadow chart">
+                            <div class="bg-[#fafafa] w-full h-[50px] rounded-[10px]">
+                                <span class="flex items-center ml-[20px] py-[15px] name">Aesthetics</span>
+                            </div>
+                            <div>
+                                <ul class="grid grid-cols-2 gap-x-[42px] gap-y-[10px] ml-[76px] mr-[41px] my-[38px] text-[14px]">
+                                    <li class="flex items-center"><span class="w-[12px] h-[12px] bg-[#aee9d7] mr-[12px]"></span><span>Infomation 01</span></li>
+                                    <li class="flex items-center"><span class="w-[12px] h-[12px] bg-[#62dcb8] mr-[12px]"></span><span>Infomation 02</span></li>
+                                    <li class="flex items-center"><span class="w-[12px] h-[12px] bg-[#21c393] mr-[12px]"></span><span>Infomation 03</span></li>
+                                    <li class="flex items-center"><span class="w-[12px] h-[12px] bg-[#32997b] mr-[12px]"></span><span>Infomation 04</span></li>
+                                </ul>
+                            </div>
+                            <div class="flex justify-center pr-[25px]">
+                                <ul class="relative flex-initial grid text-right w-[55px] -top-[11px] right-[8px]">
+                                    <li class="opacity-[.87] font-bold text-[18px] text-[#343a41]">100%</li>
+                                    <li class="opacity-[.87] text-[14px] text-[#343a41]">75%</li>
+                                    <li class="opacity-[.87] font-bold text-[18px] text-[#343a41]">50%</li>
+                                    <li class="opacity-[.87] text-[14px] text-[#343a41]">25%</li>
+                                </ul>
+                                <div class="relative w-[280px] h-[180px]">
+                                    <canvas id="aestheticsChart" width="280" height="207"></canvas>
+                                <script>
+                                    const aestheticsChartData = {
+                                        labels: ['item', 'item', 'item', 'item'],
+                                        datasets: [{
+                                            label: 'information 1',
+                                            data: [62, 39, 80, 17],
+                                            borderColor: [
+                                                'rgba(174, 233, 215, 1)',
+                                                'rgba(98, 220, 184, 1)',
+                                                'rgba(33, 195, 147, 1)',
+                                                'rgba(50, 153, 123, 1)'
+                                            ],
+                                            backgroundColor: [
+                                                'rgba(174, 233, 215, 1)',
+                                                'rgba(98, 220, 184, 1)',
+                                                'rgba(33, 195, 147, 1)',
+                                                'rgba(50, 153, 123, 1)'
+                                            ],
+                                        }]
+                                    }
+
+                                    const aestheticsChartConfig = {
+                                        type: 'bar',
+                                        data: aestheticsChartData,
+                                        options: {
+                                            scales: {
+                                                y: {
+                                                    beginAtZero: true,
+                                                    min: 0,
+                                                    max: 100,
+                                                    ticks: {
+                                                        display: false,
+                                                        stepSize: 25
+                                                    },
+                                                    grid: {
+                                                        drawTicks: false
+                                                    }
+                                                },
+                                                x: {
+                                                    grid: {
+                                                        drawTicks: false
+                                                    }
+                                                }
+                                            },
+                                            plugins: {
+                                                legend: {
+                                                    display: false
+                                                }
+                                            }
+                                        }
+                                    }
+                                </script>
+                                <script>
+                                    const aestheticsChart = new Chart(
+                                        document.getElementById('aestheticsChart'),
+                                        aestheticsChartConfig
+                                    );
+                                </script>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Navigation -->
+                        <div class="m-[20px] bg-[#fff] w-full h-[450px] rounded-[10px] shadow chart">
+                            <div class="bg-[#fafafa] w-full h-[50px] rounded-[10px]">
+                                <span class="flex items-center ml-[20px] py-[15px] name">Navigation</span>
+                            </div>
+                            <div>
+                                <ul class="grid grid-cols-2 gap-x-[42px] gap-y-[10px] ml-[53px] mr-[64px] my-[38px] text-[14px]">
+                                    <li class="flex items-center"><span class="w-[12px] h-[12px] bg-[#aee9d7] mr-[12px]"></span><span>Infomation 01</span></li>
+                                    <li class="flex items-center"><span class="w-[12px] h-[12px] bg-[#32997b] mr-[12px]"></span><span>Infomation 02</span></li>
+                                    <li class="flex items-center"><span class="w-[12px] h-[12px] bg-[#d2d4d8] mr-[12px]"></span><span>Infomation 03</span></li>
+                                </ul>
+                                <div class="flex justify-center">
+                                    <div class="relative w-[199px] h-[199px]">
+                                        <canvas id="navigationChart" width="199" height="199"></canvas>
+                                    <script>
+                                        const navigationChartData = {
+                                            labels: ['Infomation 01', 'Infomation 02', 'Infomation 03'],
+                                            datasets: [{
+                                                data: [22, 39, 50],
+                                                borderColor: [
+                                                    'rgba(174, 233, 215, 1)',
+                                                    'rgba(50, 153, 123, 1)',
+                                                    'rgba(210, 212, 216, 1)'
+                                                ],
+                                                backgroundColor: [
+                                                    'rgba(174, 233, 215, 1)',
+                                                    'rgba(50, 153, 123, 1)',
+                                                    'rgba(210, 212, 216, 1)'
+                                                ],
+                                            }]
+                                        }
+
+                                        const navigationChartConfig = {
+                                            type: 'doughnut',
+                                            data: navigationChartData,
+                                            options: {
+                                                cutout: '80%',
+                                                plugins: {
+                                                    legend: {
+                                                        display: false
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    </script>
+                                    <script>
+                                        const navigationChart = new Chart(
+                                            document.getElementById('navigationChart'),
+                                            navigationChartConfig
+                                        );
+                                    </script>
+                                    </div> 
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex w-full my-flex-wrap2_2">
+                            <!-- Speed -->
+                        <div class="m-[20px] bg-[#fff] w-full h-[450px] rounded-[10px] shadow chart">
+                            <div class="bg-[#fafafa] w-full h-[50px] rounded-[10px]">
+                                <span class="flex items-center ml-[20px] py-[15px] name">Speed</span>
+                            </div>
+                            <div>
+                                <ul class="grid grid-cols-2 gap-x-[42px] gap-y-[10px] ml-[74px] mr-[43px] my-[38px] text-[14px]">
+                                    <li class="flex items-center"><span class="w-[12px] h-[12px] bg-[#4879df] mr-[12px]"></span><span>Infomation 01</span></li>
+                                    <li class="flex items-center"><span class="w-[12px] h-[12px] bg-[#21c393] mr-[12px]"></span><span>Infomation 02</span></li>
+                                    <li class="flex items-center"><span class="w-[12px] h-[12px] bg-[#fbe08d] mr-[12px]"></span><span>Infomation 03</span></li>
+                                </ul>
+                            </div>
+                            <div class="flex justify-center w-full pr-[25px]">
+                                <ul class="relative flex-initial grid text-right w-[55px] -top-[11px] right-[8px]">
+                                    <li class="opacity-[.87] font-bold text-[18px] text-[#343a41]">100%</li>
+                                    <li class="opacity-[.87] text-[14px] text-[#343a41]">75%</li>
+                                    <li class="opacity-[.87] font-bold text-[18px] text-[#343a41]">50%</li>
+                                    <li class="opacity-[.87] text-[14px] text-[#343a41]">25%</li>
+                                </ul>
+                                <div class="relative w-[280px] h-[180px]">
+                                    <canvas id="speedChart" width="280" height="207"></canvas>
+                                <script>
+                                    const speedChartData = {
+                                        labels: ['label', 'label', 'label', 'label'],
+                                        datasets: [{
+                                            label: 'information 1',
+                                            data: [12, 39, 10, 17],
+                                            borderColor: [
+                                                'rgba(72, 121, 223, 1)'
+                                            ],
+                                            backgroundColor: [
+                                                'rgba(72, 121, 223, 1)'
+                                            ],
+                                        },
+                                        {
+                                            label: 'information 2',
+                                            data: [10, 19, 23, 25],
+                                            borderColor: [
+                                                'rgba(33, 195, 147, 1)'
+                                            ],
+                                            backgroundColor: [
+                                                'rgba(33, 195, 147, 1)'
+                                            ],
+                                        },{
+                                            label: 'information 3',
+                                            data: [28, 22, 13, 27],
+                                            borderColor: [
+                                                'rgba(251, 224, 141, 1)'
+                                            ],
+                                            backgroundColor: [
+                                                'rgba(251, 224, 141, 1)'
+                                            ],
+                                        }
+                                        ]
+                                    }
+
+                                    const speedChartConfig = {
+                                        type: 'bar',
+                                        data: speedChartData,
+                                        options: {
+                                            scales: {
+                                                y: {
+                                                    stacked: true,
+                                                    beginAtZero: true,
+                                                    min: 0,
+                                                    max: 100,
+                                                    ticks: {
+                                                        display: false,
+                                                        stepSize: 25
+                                                    },
+                                                    grid: {
+                                                        drawTicks: false
+                                                    }
+                                                },
+                                                x: {
+                                                    stacked: true,
+                                                    grid: {
+                                                        drawTicks: false
+                                                    }
+                                                }
+                                            },
+                                            plugins: {
+                                                legend: {
+                                                    display: false
+                                                }
+                                            }
+                                        }
+                                    }
+                                </script>
+                                <script>
+                                    const speedChart = new Chart(
+                                        document.getElementById('speedChart'),
+                                        speedChartConfig
+                                    );
+                                </script>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Searchability -->
+                        <div class="m-[20px] bg-[#fff] w-full h-[450px] rounded-[10px] shadow chart">
+                            <div class="bg-[#fafafa] w-full h-[50px] rounded-[10px]">
+                                <span class="flex items-center ml-[20px] py-[15px] name">Searchability</span>
+                            </div>
+                            <div>
+                                <ul class="grid grid-cols-2 gap-x-[42px] gap-y-[10px] ml-[71px] mr-[46px] mt-[38px] mb-[30px] text-[14px]">
+                                    <li class="flex items-center"><span class="w-[12px] h-[12px] bg-[#21c393] mr-[12px] rounded-full"></span><span>Infomation 01</span></li>
+                                    <li class="flex items-center"><span class="w-[12px] h-[12px] bg-[#fad567] mr-[12px] rounded-full"></span><span>Infomation 02</span></li>
+                                    <li class="flex items-center"><span class="w-[12px] h-[12px] bg-[#6a8ee3] mr-[12px] rounded-full"></span><span>Infomation 03</span></li>
+                                </ul>
+                            </div>
+                            <div class="flex justify-center w-full pr-[25px]">
+                                <ul class="relative flex-initial grid text-right w-[55px] -top-[8px]">
+                                    <li class="opacity-[.87] font-bold text-[18px] text-[#343a41]">100%</li>
+                                    <li class="opacity-[.87] text-[14px] text-[#343a41]">75%</li>
+                                    <li class="opacity-[.87] font-bold text-[18px] text-[#343a41]">50%</li>
+                                    <li class="opacity-[.87] text-[14px] text-[#343a41]">25%</li>
+                                </ul>
+                                <div class="relative w-[280px] h-[180px]">
+                                    <canvas id="searchabilityChart" width="280" height="207"></canvas>
+                                <script>
+                                    const searchabilityChartData = {
+                                        labels: ['', 'label', 'label', 'label', 'label', ''],
+                                        datasets: [{
+                                            label: 'information 1',
+                                            data: [12, 19, 10, 57, 24, 32],
+                                            borderColor: [
+                                                'rgba(33, 195, 147, 1)'
+                                            ],
+                                            backgroundColor: [
+                                                'rgba(33, 195, 147, 1)'
+                                            ],
+                                            borderWidth: 2
+                                        },
+                                        {
+                                            label: 'information 2',
+                                            data: [50, 9, 53, 75, 32, 30],
+                                            borderColor: [
+                                                'rgba(250, 213, 103, 1)'
+                                            ],
+                                            backgroundColor: [
+                                                'rgba(250, 213, 103, 1)'
+                                            ],
+                                            borderWidth: 2
+                                        },
+                                        {
+                                            label: 'information 3',
+                                            data: [28, 62, 83, 47, 83, 70],
+                                            borderColor: [
+                                                'rgba(106, 142, 227, 1)'
+                                            ],
+                                            backgroundColor: [
+                                                'rgba(106, 142, 227, 1)'
+                                            ],
+                                            borderWidth: 2
+                                        }]
+                                    }
+
+                                    const searchabilityChartConfig = {
+                                        type: 'line',
+                                        data: searchabilityChartData,
+                                        options: {
+                                            scales: {
+                                                y: {
+                                                    beginAtZero: true,
+                                                    min: 0,
+                                                    max: 100,
+                                                    ticks: {
+                                                        display: false,
+                                                        stepSize: 25
+                                                    },
+                                                    grid: {
+                                                        drawTicks: false
+                                                    }
+                                                },
+                                                x: {
+                                                    grid: {
+                                                        drawTicks: false
+                                                    }
+                                                }
+                                            },
+                                            plugins: {
+                                                legend: {
+                                                    display: false
+                                                }
+                                            }
+                                        }
+                                    }
+                                </script>
+                                <script>
+                                    const searchabilityChart = new Chart(
+                                        document.getElementById('searchabilityChart'),
+                                        searchabilityChartConfig
+                                    );
+                                </script>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </main>
+        </div>
         @@include('html/footer.html', {})
         <script src="js/app.min.js"></script>
     </body>
